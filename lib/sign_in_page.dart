@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:csv/csv.dart';
 import 'input_field.dart'; // Import the InputField widget
+import 'home_page.dart'; // Import the HomePage widget
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -15,56 +14,24 @@ class _SignInPageState extends State<SignInPage> {
   bool _isSiswaIdFocused = false;
   bool _isPasswordFocused = false;
   bool _isPasswordVisible = false; // Add this boolean to manage password visibility
+  bool _isLoading = false; // Add this boolean to manage loading state
 
-  final TextEditingController _siswaIdController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  final Map<String, String> _credentials = {};
-  String _errorMessage = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _loadCredentials();
-  }
-
-  Future<void> _loadCredentials() async {
-    final String csvString = await rootBundle.loadString('assets/credentials.csv');
-    final List<List<dynamic>> csvTable = const CsvToListConverter().convert(csvString);
-
-    for (var i = 1; i < csvTable.length; i++) {
-      final String siswaId = csvTable[i][0].toString();
-      final String password = csvTable[i][1].toString();
-      _credentials[siswaId] = password;
-      print('Loaded credential: siswaId=$siswaId, password=$password');
-    }
-
-    // Debug print to verify credentials
-    print('Loaded credentials: $_credentials');
-  }
-
-  void _validateCredentials() {
-    final String siswaId = _siswaIdController.text;
-    final String password = _passwordController.text;
-
+  Future<void> _validateCredentials() async {
     setState(() {
-      if (_credentials.containsKey(siswaId) && _credentials[siswaId] == password) {
-        _errorMessage = '';
-        // Credentials are valid, navigate to the next screen or perform an action
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Login successful')),
-        );
-      } else {
-        // Credentials are invalid, show an error message
-        _errorMessage = 'Invalid Password';
-      }
+      _isLoading = true; // Start loading animation
     });
 
-    // Debug print to verify input
-    print('Entered siswaId: $siswaId, password: $password');
-    print('Credentials map: $_credentials');
-  }
+    await Future.delayed(const Duration(seconds: 1)); // Simulate network delay
 
+    setState(() {
+      _isLoading = false; // Stop loading animation
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    });
+  }
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,18 +131,9 @@ class _SignInPageState extends State<SignInPage> {
                 },
               ),
 
-              if (_errorMessage.isNotEmpty)
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Text(
-                    _errorMessage,
-                    style: const TextStyle(color: Colors.red),
-                  ),
-                ),
-
               const SizedBox(height: 35),
               ElevatedButton(
-                onPressed: _validateCredentials,
+                onPressed: _isLoading ? null : _validateCredentials,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(243, 255, 114, 96), 
                   minimumSize: const Size(320, 50), // Increase the width and height of the button
@@ -183,14 +141,16 @@ class _SignInPageState extends State<SignInPage> {
                     borderRadius: BorderRadius.circular(15.0), // Reduce the curve of the button
                   ),
                 ),
-                child: const Text('Login',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                    fontFamily: 'Roboto',
-                    color: Colors.white,
-                  ),
-                ),
+                child: _isLoading 
+                  ? const CircularProgressIndicator(color: Colors.white) 
+                  : const Text('Login',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                      ),
+                    ),
               ),
 
               const SizedBox(height: 16),
