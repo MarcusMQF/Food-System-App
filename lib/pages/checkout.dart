@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:um_internal_hackathon/home_page.dart';
 
 SwitchWidget switchWidget() {
   return const SwitchWidget();
@@ -38,7 +39,7 @@ class CheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: appBar(context),
       body: 
       Stack (
         children: [
@@ -224,30 +225,11 @@ class CheckoutPage extends StatelessWidget {
   }
 }
 
-AppBar appBar(){
+AppBar appBar(BuildContext context){
   return AppBar(
     title: const Text('Checkout'),
     centerTitle: true,
     backgroundColor: Colors.white,
     elevation: 0.0,
-    leading: 
-      OutlinedButton(
-        onPressed: () {
-          // Action to perform when the leading widget is pressed
-          print('Leading widget pressed');
-        },
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(color: Colors.white, width: 2), // Border color and width
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10), // Rounded corners
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Padding
-        ),
-        child: SvgPicture.asset(
-          'assets/icons/left-arrow.svg',
-          height: 20,
-          width: 20,
-        ),
-      ),
-    ); 
+  ); 
 }
