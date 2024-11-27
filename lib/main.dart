@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:um_internal_hackathon/pages/checkout.dart';
 import 'sign_in_page.dart'; 
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignInPage(),
+      //home: const SignInPage(),
+      home: const CheckoutPage(),
     );
   }
 }

@@ -53,7 +53,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -70,8 +69,7 @@ flutter:
   assets:
     - assets/credentials.csv
     - assets/background.png
-    - assets/icons/left-arrow.svg
-
+    
   # To add assets to your application, add an assets section, like this:
   #   - images/a_dot_ham.jpeg
 

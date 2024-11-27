@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:um_internal_hackathon/home_page.dart';
+import 'package:um_internal_hackathon/pages/payment_details_page.dart';
 
 SwitchWidget switchWidget() {
   return const SwitchWidget();
@@ -44,20 +45,27 @@ class CheckoutPage extends StatelessWidget {
       Stack (
         children: [
           SingleChildScrollView (
-          padding: EdgeInsets.all(16.0), // Add padding around the container
           child: Column(
-            children:  <Widget> [
+            children:[
               // order summary title
               Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween, // Aligns children along the main axis (horizontal)
               children: <Widget>[
-                const Text('Order Summary',
-                style: TextStyle(
-                  fontSize: 20,
-                ),),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0), // Adds horizontal padding
+                  child: Text("Order Summary",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  )),
+                ),
                 TextButton(
                   onPressed: () { 
-          
+                    // Navigate to the CheckoutPage when the button is clicked
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
                   },
                   child: const Text('Add more items')
                   ),
@@ -66,13 +74,8 @@ class CheckoutPage extends StatelessWidget {
               // order summary content 
               //order
               Container(
-                padding: EdgeInsets.all(16.0), // Add padding around the container
-                margin: EdgeInsets.all(16.0),  // Add margin around the container
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],     // Add a background color
-                  borderRadius: BorderRadius.circular(8.0), // Add rounded corners
-                  border: Border.all(color: Color.fromARGB(255, 0, 108, 90), width: 2.0), // Add a border
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
+                margin: EdgeInsets.symmetric(horizontal: 16.0),  // Add margin around the container
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -94,15 +97,17 @@ class CheckoutPage extends StatelessWidget {
                   ],
                 ),
               ),
+              const Divider(
+                height: 20, // Height of the divider
+                thickness: 2, // Thickness of the line
+                color: Color.fromARGB(255, 221, 221, 221), // Color of the line
+                indent: 20, // Indent from the left
+                endIndent: 20, // Indent from the right
+              ),
               // payment details
               Container(
-                padding: EdgeInsets.all(16.0), // Add padding around the container
-                margin: EdgeInsets.all(16.0),  // Add margin around the container
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],     // Add a background color
-                  borderRadius: BorderRadius.circular(8.0), // Add rounded corners
-                  border: Border.all(color: Color.fromARGB(255, 0, 108, 90), width: 2.0), // Add a border
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
+                margin: EdgeInsets.symmetric(horizontal: 16.0),  // Add margin around the container
                 child: const Column(
                   children: [
                     // Delivery fee
@@ -125,15 +130,18 @@ class CheckoutPage extends StatelessWidget {
                   ],
                 ), 
               ),
+              const Divider(
+                height: 20, // Height of the divider
+                thickness: 2, // Thickness of the line
+                color: Color.fromARGB(255, 221, 221, 221), // Color of the line
+                indent: 20, // Indent from the left
+                endIndent: 20, // Indent from the right
+              ),
               //Option for cutlery
               Container(
-                padding: EdgeInsets.all(16.0), // Add padding around the container
-                margin: EdgeInsets.all(16.0),  // Add margin around the container
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],     // Add a background color
-                  borderRadius: BorderRadius.circular(8.0), // Add rounded corners
-                  border: Border.all(color: Color.fromARGB(255, 0, 108, 90), width: 2.0), // Add a border
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),  // Add margin around the container
+                
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -147,31 +155,37 @@ class CheckoutPage extends StatelessWidget {
                   ],
                 ),
               ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 10.0),
+                margin: EdgeInsets.symmetric(vertical: 16.0), 
+                width: double.infinity,
+                color: const Color.fromARGB(255, 213, 224, 216),
+                child: const Text(
+                  'Payment details',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),),
+              ),
               Column(
                 children: [
-                  Container(
-                    width: double.infinity,
-                    color: const Color.fromARGB(255, 213, 224, 216),
-                    padding: EdgeInsets.all(8.0),
-                    child: const Text(
-                      'Payment details',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),),
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('TouchNGo E-wallet'),
+                    children: [ 
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 32.0), // Adds horizontal padding
+                        child: Text("TouchNGo"),
+                      ),
                       TextButton(
                         onPressed: () { 
-                            
-                          },  
-                        child: SvgPicture.asset(
-                          'assets/icons/left-arrow.svg',
-                          height: 20,
-                          width: 20
-                      ),)
+                          // Navigate to the CheckoutPage when the button is clicked
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const PaymentDetailsPage()),
+                          );
+                        },  
+                        child: Text('Change payment method')
+                      )
                     ],
                   )
                 ],
@@ -191,8 +205,15 @@ class CheckoutPage extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Total'),
-                      Text('RM12.90')
+                      Text('Total',
+                      style: TextStyle(
+                        fontSize: 16,
+                      )),
+                      Text('RM12.90',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ))
                     ],
                   ),
                   Container (

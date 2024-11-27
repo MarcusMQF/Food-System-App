@@ -38,7 +38,7 @@ class _SignInPageState extends State<SignInPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background.png'),
+            image: AssetImage('assets/icons/tng-logo.png'),
             fit: BoxFit.cover,
           ),
         ),
