@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:um_internal_hackathon/home_page.dart';
-import 'package:um_internal_hackathon/pages/payment_details_page.dart';
+import 'package:um_internal_hackathon/pages/payment_method_page.dart';
 
 SwitchWidget switchWidget() {
   return const SwitchWidget();
 }
 
 class SwitchWidget extends StatefulWidget {
-  const SwitchWidget({Key? key}) : super(key: key);
+  const SwitchWidget({super.key});
 
   @override
   State<SwitchWidget> createState() => _SwitchWidgetState();
@@ -27,7 +27,7 @@ class _SwitchWidgetState extends State<SwitchWidget> {
             isSwitched = value;
           });
         },
-        activeColor: Color.fromARGB(255, 0, 108, 90), // Color when the switch is on
+        activeColor: const Color.fromARGB(255, 0, 108, 90), // Color when the switch is on
         inactiveThumbColor: Colors.grey, // Thumb color when the switch is off
       ),
     );
@@ -51,8 +51,8 @@ class CheckoutPage extends StatelessWidget {
               Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween, // Aligns children along the main axis (horizontal)
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0), // Adds horizontal padding
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0), // Adds horizontal padding
                   child: Text("Order Summary",
                   style: TextStyle(
                     fontSize: 16,
@@ -74,8 +74,8 @@ class CheckoutPage extends StatelessWidget {
               // order summary content 
               //order
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
-                margin: EdgeInsets.symmetric(horizontal: 16.0),  // Add margin around the container
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),  // Add margin around the container
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -84,7 +84,7 @@ class CheckoutPage extends StatelessWidget {
                         const Text('1x'),
                         const SizedBox(width: 30.0),
                         const Text('Chicken Burger'),
-                        SizedBox(width: 15.0),
+                        const SizedBox(width: 15.0),
                         TextButton(onPressed: () { 
                               
                             }, 
@@ -106,8 +106,8 @@ class CheckoutPage extends StatelessWidget {
               ),
               // payment details
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
-                margin: EdgeInsets.symmetric(horizontal: 16.0),  // Add margin around the container
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),  // Add margin around the container
                 child: const Column(
                   children: [
                     // Delivery fee
@@ -139,8 +139,8 @@ class CheckoutPage extends StatelessWidget {
               ),
               //Option for cutlery
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),  // Add margin around the container
+                padding: const EdgeInsets.symmetric(horizontal: 16.0), // Add padding around the container
+                margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),  // Add margin around the container
                 
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -157,7 +157,7 @@ class CheckoutPage extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 10.0),
-                margin: EdgeInsets.symmetric(vertical: 16.0), 
+                margin: const EdgeInsets.symmetric(vertical: 16.0), 
                 width: double.infinity,
                 color: const Color.fromARGB(255, 213, 224, 216),
                 child: const Text(
@@ -171,20 +171,33 @@ class CheckoutPage extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [ 
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 32.0), // Adds horizontal padding
-                        child: Text("TouchNGo"),
-                      ),
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 16.0),
+                            width: 60,
+                            height: 30,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/tng-logo.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const Text("TouchNGo"),
+                        ],
+                      ), 
+                      
                       TextButton(
                         onPressed: () { 
-                          // Navigate to the CheckoutPage when the button is clicked
+                          // Navigate to the PaymentMethodPage when the button is clicked
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const PaymentDetailsPage()),
                           );
                         },  
-                        child: Text('Change payment method')
+                        child: const Text('Change payment method')
                       )
                     ],
                   )
@@ -228,7 +241,7 @@ class CheckoutPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10), // Rounded corners
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16), // Padding
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16), // Padding
                     ),
                       child: const Text('Place Order',
                       style: TextStyle(
