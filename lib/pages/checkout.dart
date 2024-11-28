@@ -7,7 +7,11 @@ const String touchNGoImagePath = 'assets/tng-logo.png';
 const String cashImagePath = 'assets/icons/cash-icon.png';
 const String cardImagePath = 'assets/icons/credit-card-icon.png';
 
-List<String> options = ['TouchNGo','Cash', 'Card'];
+List<String> paymentOptions = ['TouchNGo','Cash', 'Card'];
+List<String> deliveryOption = ['Green Delivery','Standard'];
+List<double> deliveryFee = [3.00, 5.00];
+List<int> deliveryDuration = [30, 10];
+List<String> deliveryDescription = ['A more eco-friendly option.', 'Directly delivered to you.'];
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});
@@ -18,7 +22,17 @@ class CheckoutPage extends StatefulWidget {
 
 class _CheckoutPageState extends State<CheckoutPage> {
   bool isSwitched = false;
-  String currentOption = options[0];
+  String currentOption = paymentOptions[0];
+  bool isDeliverySelected = false;
+  String deliveryOptions = deliveryOption[0];
+
+  void toggleDeliveryOption(bool? isDelivery) {
+    if (isDelivery != null) {
+      setState(() {
+        isDeliverySelected = isDelivery;
+      });
+    }
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -30,8 +44,129 @@ class _CheckoutPageState extends State<CheckoutPage> {
           SingleChildScrollView (
           padding: const EdgeInsets.only(bottom: 80.0),
           child: Column(
-            children:[
-              
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 13),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ElevatedButton(
+                  onPressed: () => toggleDeliveryOption(true),
+                  child: Text('Delivery',
+                  style: 
+                  TextStyle(
+                    color: isDeliverySelected ? Color.fromARGB(255,248, 171, 71) : Colors.grey,
+                    fontWeight: isDeliverySelected ? FontWeight.bold : FontWeight.normal,
+                  ),),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isDeliverySelected ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 237, 237, 237),
+                  ),
+                ),
+                SizedBox(width: 16.0),
+                ElevatedButton(
+                  onPressed: () => toggleDeliveryOption(false),
+                  child: Text('Pick-up',
+                  style: TextStyle(
+                    color: !isDeliverySelected ? Color.fromARGB(255,248, 171, 71) : Colors.grey,
+                    fontWeight: !isDeliverySelected ? FontWeight.bold : FontWeight.normal,
+                  ),),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: !isDeliverySelected ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 237, 237, 237),
+                  ),
+                ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          if (isDeliverySelected)
+            Container(
+              margin: EdgeInsets.only(bottom: 25),
+              padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 16, top: 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: Text(
+                      'Delivery Option',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  deliveryOptionsMethod(deliveryOption[0], deliveryFee[0], deliveryDuration[0], deliveryDescription[0]),
+                  deliveryOptionsMethod(deliveryOption[1], deliveryFee[1], deliveryDuration[1], deliveryDescription[1]),
+                  //deliveryOptions('Standard', 10.00, 10, 'Directly delivered to you.'),
+                  SizedBox(height: 16.0),
+                  Row(
+                    children: [
+                      Container(
+                        width: 20,
+                        height: 20,
+                        decoration: 
+                        const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/location.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Text('Delivery Address:',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    ],
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter your address',
+                      hintStyle: TextStyle(
+                        fontSize: 13,
+                      )
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          if (!isDeliverySelected)
+            Container(
+              margin: EdgeInsets.only(bottom: 25),
+              padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 16, top: 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: Text(
+                      'Pick-up Details',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  const Text('Pick-up Location:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter pick-up location',
+                      hintStyle: TextStyle(
+                        fontSize: 13,),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Divider(
+                height: 20, // Height of the divider
+                thickness: 3, // Thickness of the line
+                color: Color.fromARGB(255, 234, 228, 218),
+              ),
               // order summary title
               Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween, // Aligns children along the main axis (horizontal)
@@ -102,11 +237,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
               // payment details
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0), // Add padding around the container
-                margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),  // Add margin around the container
-                child: const Column(
+                margin: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10, bottom: 35),  // Add margin around the container
+                child: Column(
                   children: [
                     // Delivery fee
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Subtotal(incl. Tax)',
@@ -124,14 +259,20 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Delivery fee',
-                        style: TextStyle(
-                          fontSize: 13,
-                        ),),
-                        Text('5.00',
-                        style: TextStyle(
-                          fontSize: 13,
-                        ),),
+                        if (isDeliverySelected)
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Delivery fee',
+                            style: TextStyle(
+                              fontSize: 13,
+                            ),),
+                            Text('5.00',
+                            style: TextStyle(
+                              fontSize: 13,
+                            ),),
+                              ],
+                        )
                       ],
                     ),
                   ],
@@ -151,9 +292,20 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(bottom: 13),
-                        child: const Row(
+                        child: Row(
                           children: [
-                            Text('Eco-friendly options',
+                            Container(
+                              width: 30,
+                              height: 30,
+                              decoration: 
+                              const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/icons/eco-icon.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const Text('Eco-friendly options',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -286,6 +438,75 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ) 
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Container deliveryOptionsMethod(String option, double fee, int duration, String description){
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: const Color.fromARGB(255, 168, 168, 168), // Border color
+          width: 2.0, // Border width
+        ),
+        borderRadius: BorderRadius.circular(20.0), 
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(option,
+                  style: 
+                  TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                  Container(
+                    margin: EdgeInsets.only(left: 16),
+                    child: Text('<${duration.toString()} mins')
+                  ),
+                ],
+              ),
+              Text(description)
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Container(
+                padding: EdgeInsets.only(bottom: 6.5, right: 13),
+                child: Text('${fee.toStringAsFixed(2)}')),
+              Container (
+                child: Radio<String>(
+                  value: option,
+                  groupValue: deliveryOptions,
+                  onChanged: (value) {
+                    setState(() {
+                      deliveryOptions = value!;
+                    });
+                  },
+                  activeColor: Color.fromARGB(255,248, 171, 71), // Color when selected
+                  fillColor: WidgetStateProperty.resolveWith<Color>(
+                    (Set<WidgetState> states) {
+                      if (states.contains(WidgetState.selected)) {
+                        return Color.fromARGB(255,248, 171, 71); // Color when selected
+                      }
+                      return Colors.grey; // Color when not selected
+                    },
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
