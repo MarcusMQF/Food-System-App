@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:um_internal_hackathon/home_page.dart';
+import 'package:um_internal_hackathon/pages/checkout_message.dart';
 
 const String touchNGoImagePath = 'assets/tng-logo.png';
 const String cashImagePath = 'assets/icons/cash-icon.png';
@@ -257,6 +258,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     margin: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return const CheckoutMessageView();
+                          });
                       },
                       style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255,248, 171, 71), 
