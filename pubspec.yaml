@@ -37,6 +37,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  lottie: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -68,14 +69,23 @@ flutter:
     - family: AwesomeFriday
       fonts:
         - asset: fonts/Awesome-Friday.otf
-        
-    - family: SunfishOriginal
-      fonts:
-        - asset: fonts/Sunfish-Original.otf
 
+    - family: StudyClash
+      fonts:
+        - asset: fonts/Study-Clash.otf
+      
+    - family: Workspace
+      fonts:
+        - asset: fonts/Workspace.otf
+      
   assets:
     - assets/credentials.csv
-    - assets/background.png
+    - assets/images/stink.png
+    - assets/images/green.png
+    - assets/images/medal.png
+    - assets/images/kimseng.png
+    - assets/images/khasiat.png
+    - assets/images/laivegetarian.png
 
 
   # To add assets to your application, add an assets section, like this:
