@@ -1,6 +1,5 @@
 // home_page.dart
 import 'package:flutter/material.dart';
-import 'package:um_internal_hackathon/pages/checkout.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

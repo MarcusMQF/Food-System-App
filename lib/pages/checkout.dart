@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:um_internal_hackathon/home_page.dart';
 import 'package:um_internal_hackathon/pages/checkout_message.dart';
 
@@ -46,7 +45,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 13),
+            margin: const EdgeInsets.only(top: 13),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -56,27 +55,27 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   children: [
                     ElevatedButton(
                   onPressed: () => toggleDeliveryOption(true),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isDeliverySelected ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 237, 237, 237),
+                  ),
                   child: Text('Delivery',
                   style: 
                   TextStyle(
                     color: isDeliverySelected ? Color.fromARGB(255,248, 171, 71) : Colors.grey,
                     fontWeight: isDeliverySelected ? FontWeight.bold : FontWeight.normal,
                   ),),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: isDeliverySelected ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 237, 237, 237),
-                  ),
                 ),
-                SizedBox(width: 16.0),
+                const SizedBox(width: 16.0),
                 ElevatedButton(
                   onPressed: () => toggleDeliveryOption(false),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: !isDeliverySelected ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 237, 237, 237),
+                  ),
                   child: Text('Pick-up',
                   style: TextStyle(
                     color: !isDeliverySelected ? Color.fromARGB(255,248, 171, 71) : Colors.grey,
                     fontWeight: !isDeliverySelected ? FontWeight.bold : FontWeight.normal,
                   ),),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: !isDeliverySelected ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 237, 237, 237),
-                  ),
                 ),
                   ],
                 )
@@ -85,15 +84,15 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
           if (isDeliverySelected)
             Container(
-              margin: EdgeInsets.only(bottom: 25),
+              margin: const EdgeInsets.only(bottom: 25),
               padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 16, top: 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: Text(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    child: const Text(
                       'Delivery Option',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
@@ -101,7 +100,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   deliveryOptionsMethod(deliveryOption[0], deliveryFee[0], deliveryDuration[0], deliveryDescription[0]),
                   deliveryOptionsMethod(deliveryOption[1], deliveryFee[1], deliveryDuration[1], deliveryDescription[1]),
                   //deliveryOptions('Standard', 10.00, 10, 'Directly delivered to you.'),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     children: [
                       Container(
@@ -115,13 +114,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           ),
                         ),
                       ),
-                      Text('Delivery Address:',
+                      const Text('Delivery Address:',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),),
                     ],
                   ),
-                  TextField(
+                  const TextField(
                     decoration: InputDecoration(
                       hintText: 'Enter your address',
                       hintStyle: TextStyle(
@@ -134,15 +133,15 @@ class _CheckoutPageState extends State<CheckoutPage> {
             ),
           if (!isDeliverySelected)
             Container(
-              margin: EdgeInsets.only(bottom: 25),
+              margin: const EdgeInsets.only(bottom: 25),
               padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 16, top: 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 10),
-                    child: Text(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    child: const Text(
                       'Pick-up Details',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
@@ -180,7 +179,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   )),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 16),
+                  margin: const EdgeInsets.only(right: 16),
                   child: TextButton(
                     onPressed: () { 
                       // Navigate to the CheckoutPage when the button is clicked
@@ -291,12 +290,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(bottom: 13),
+                        margin: const EdgeInsets.only(bottom: 13),
                         child: Row(
                           children: [
                             Container(
-                              width: 30,
-                              height: 30,
+                              width: 20,
+                              height: 20,
                               decoration: 
                               const BoxDecoration(
                                 image: DecorationImage(
@@ -389,15 +388,15 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 16),
-                        child: Text('Total',
+                        margin: const EdgeInsets.only(left: 16),
+                        child: const Text('Total',
                         style: TextStyle(
                           fontSize: 18,
                         )),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 16),
-                        child: Text('RM12.90',
+                        margin: const EdgeInsets.only(right: 16),
+                        child: const Text('RM12.90',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -445,8 +444,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   Container deliveryOptionsMethod(String option, double fee, int duration, String description){
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
       decoration: BoxDecoration(
         border: Border.all(
           color: const Color.fromARGB(255, 168, 168, 168), // Border color
@@ -465,12 +464,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 children: [
                   Text(option,
                   style: 
-                  TextStyle(
+                  const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
                   ),),
                   Container(
-                    margin: EdgeInsets.only(left: 16),
+                    margin: const EdgeInsets.only(left: 16),
                     child: Text('<${duration.toString()} mins')
                   ),
                 ],
@@ -483,8 +482,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
-                padding: EdgeInsets.only(bottom: 6.5, right: 13),
-                child: Text('${fee.toStringAsFixed(2)}')),
+                padding: const EdgeInsets.only(bottom: 6.5, right: 13),
+                child: Text(fee.toStringAsFixed(2))),
               Container (
                 child: Radio<String>(
                   value: option,
@@ -494,11 +493,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       deliveryOptions = value!;
                     });
                   },
-                  activeColor: Color.fromARGB(255,248, 171, 71), // Color when selected
+                  activeColor: const Color.fromARGB(255,248, 171, 71), // Color when selected
                   fillColor: WidgetStateProperty.resolveWith<Color>(
                     (Set<WidgetState> states) {
                       if (states.contains(WidgetState.selected)) {
-                        return Color.fromARGB(255,248, 171, 71); // Color when selected
+                        return const Color.fromARGB(255,248, 171, 71); // Color when selected
                       }
                       return Colors.grey; // Color when not selected
                     },
@@ -514,8 +513,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   Container paymentMethod(String imagePath, String paymentMethod) {
     return Container (
-            margin: EdgeInsets.symmetric(vertical: 6.0),
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            margin: const EdgeInsets.symmetric(vertical: 6.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 6.0),
               child: 
@@ -535,7 +534,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Text(paymentMethod)
                       ),
                     ],
@@ -549,11 +548,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           currentOption = value!;
                         });
                       },
-                      activeColor: Color.fromARGB(255,248, 171, 71), // Color when selected
+                      activeColor: const Color.fromARGB(255,248, 171, 71), // Color when selected
                       fillColor: WidgetStateProperty.resolveWith<Color>(
                         (Set<WidgetState> states) {
                           if (states.contains(WidgetState.selected)) {
-                            return Color.fromARGB(255,248, 171, 71); // Color when selected
+                            return const Color.fromARGB(255,248, 171, 71); // Color when selected
                           }
                           return Colors.grey; // Color when not selected
                         },
@@ -574,7 +573,7 @@ AppBar appBar(BuildContext context){
       fontWeight: FontWeight.bold,
     ),),
     bottom: PreferredSize(
-            preferredSize: Size.fromHeight(4.0), // Adjust the height as needed
+            preferredSize: const Size.fromHeight(4.0), // Adjust the height as needed
             child: Container(
               color: const Color.fromARGB(255, 237, 237, 237), // Adjust the color as needed
               height: 4.0, // Adjust the height as needed

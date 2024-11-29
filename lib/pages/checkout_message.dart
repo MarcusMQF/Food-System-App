@@ -26,7 +26,7 @@ class _CheckoutMessageViewState extends State<CheckoutMessageView> {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 30),
+            margin: const EdgeInsets.symmetric(vertical: 30),
             width: 120,
             height: 120,
             decoration: 
@@ -47,7 +47,7 @@ class _CheckoutMessageViewState extends State<CheckoutMessageView> {
           ),
           const Text('We will notify you once your order has arrived.'),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 30),
+            margin: const EdgeInsets.symmetric(vertical: 30),
             child: TextButton(onPressed: () { 
                       // Navigate to the homepage when the button is clicked
                       Navigator.push(

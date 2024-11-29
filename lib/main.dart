@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_internal_hackathon/home_page.dart';
 import 'package:um_internal_hackathon/pages/checkout.dart';
-import 'package:um_internal_hackathon/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
