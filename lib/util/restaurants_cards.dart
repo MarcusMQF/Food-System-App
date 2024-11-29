@@ -6,7 +6,7 @@ class RestaurantCards extends StatelessWidget {
   final String restaurantName;
   final String restaurantAdress;
 
-  RestaurantCards({
+  const RestaurantCards({super.key, 
     required this.restaurantImagePath,
     required this.rating,
     required this.restaurantName,

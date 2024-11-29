@@ -1,17 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:um_internal_hackathon/pages/checkout.dart';
+import 'package:um_internal_hackathon/profile_page.dart';
+import 'package:um_internal_hackathon/settings_page.dart';
 import 'package:um_internal_hackathon/util/category_card.dart';
 import 'package:um_internal_hackathon/util/restaurants_cards.dart';
 import 'package:lottie/lottie.dart'; 
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
+    final List<Widget> _pages = [
+      HomePage(),
+      CheckoutPage(),
+      ProfilePage(),
+      SettingsPage(),
+    ];
+
+    void _onTabTapped(int index) {
+      setState(() {
+        _currentIndex = index;
+      });
+    }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 248, 242),
-      body: SafeArea(
+      body:
+      _currentIndex == 0? 
+       SafeArea(
         child: Column(
           children: [
             const SizedBox(height: 10),
@@ -283,10 +307,10 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
           ],
         ),
-      ),
-
-      bottomNavigationBar: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      )
+      : _pages[_currentIndex],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: GNav(
           backgroundColor: Colors.transparent,
           color: Colors.black,
@@ -294,6 +318,8 @@ class HomePage extends StatelessWidget {
           tabBackgroundColor: Color.fromARGB(255, 248, 171, 71),
           gap: 8,
           padding: EdgeInsets.all(16),
+          selectedIndex: _currentIndex,
+          onTabChange: _onTabTapped,
           tabs: [
             GButton(
               icon: Icons.home,
@@ -301,7 +327,7 @@ class HomePage extends StatelessWidget {
             ),
             GButton(
               icon: Icons.shopping_cart,
-              text: 'Cart',
+              text: 'Checkout',
             ),
             GButton(
               icon: Icons.person,
@@ -314,6 +340,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      
     );
   }
 }
