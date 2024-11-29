@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:um_internal_hackathon/pages/checkout.dart';
-import 'package:um_internal_hackathon/profile_page.dart';
-import 'package:um_internal_hackathon/settings_page.dart';
-import 'package:um_internal_hackathon/util/category_card.dart';
-import 'package:um_internal_hackathon/util/restaurants_cards.dart';
+import 'package:food_system_app/checkout_page.dart';
+import 'package:food_system_app/profile_page.dart';
+import 'package:food_system_app/settings_page.dart';
+import 'package:food_system_app/util/category_cards.dart';
+import 'package:food_system_app/util/restaurants_cards.dart';
 import 'package:lottie/lottie.dart'; 
 
 class HomePage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
     final List<Widget> _pages = [
-      HomePage(),
+      const HomePage(),
       CheckoutPage(),
       ProfilePage(),
       SettingsPage(),
@@ -222,7 +222,7 @@ class _HomePageState extends State<HomePage> {
               height: 80,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
+                children: const [
                   CategoryCard(
                     categoryName: 'Green Dining',
                     iconImagePath: 'assets/images/green.png',
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                     categoryName: 'Rewards Program',
                     iconImagePath: 'assets/images/medal.png'
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20),
                 ],
               ),
             ),
@@ -270,7 +270,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
+                children: const [
                   SizedBox(
                     width: 200, // Set the width of each card
                     child: RestaurantCards(
@@ -298,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                       restaurantAdress: 'JNo, 1-13A Mukim Pekan Kayu Ara, Petaling Jaya, Selangor',
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20),
                 ],
               ),
             ),
@@ -315,12 +315,12 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           color: Colors.black,
           activeColor: Colors.black,
-          tabBackgroundColor: Color.fromARGB(255, 248, 171, 71),
+          tabBackgroundColor: const Color.fromARGB(255, 248, 171, 71),
           gap: 8,
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           selectedIndex: _currentIndex,
           onTabChange: _onTabTapped,
-          tabs: [
+          tabs: const [
             GButton(
               icon: Icons.home,
               text: 'Home',

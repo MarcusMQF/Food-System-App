@@ -1,4 +1,4 @@
-package com.example.um_internal_hackathon
+package com.example.food_system_app
 
 import io.flutter.embedding.android.FlutterActivity
 

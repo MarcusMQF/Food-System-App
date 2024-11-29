@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:um_internal_hackathon/home_page.dart';
+import 'package:food_system_app/home_page.dart';
 
 class CheckoutMessageView extends StatefulWidget {
   const CheckoutMessageView({super.key});
@@ -32,7 +32,7 @@ class _CheckoutMessageViewState extends State<CheckoutMessageView> {
             decoration: 
             const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/order-completed.png'),
+                image: AssetImage('assets/images/order-completed.png'),
                 fit: BoxFit.cover,
               ),
             ),

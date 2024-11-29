@@ -1,6 +1,6 @@
 {
-    "name": "um_internal_hackathon",
-    "short_name": "um_internal_hackathon",
+    "name": "food_system_app",
+    "short_name": "food_system_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

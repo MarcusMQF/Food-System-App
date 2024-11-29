@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:um_internal_hackathon/home_page.dart';
-import 'package:um_internal_hackathon/util/checkout_message.dart';
+import 'package:food_system_app/home_page.dart';
+import 'package:food_system_app/util/checkout_message.dart';
 
 const String touchNGoImagePath = 'assets/images/tng-logo.png';
 const String cashImagePath = 'assets/icons/cash-icon.png';
