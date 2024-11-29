@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:um_internal_hackathon/util/category_card.dart';
 import 'package:um_internal_hackathon/util/restaurants_cards.dart';
 import 'package:lottie/lottie.dart'; 
+import 'package:um_internal_hackathon/profile_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -285,29 +286,48 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      bottomNavigationBar: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         child: GNav(
           backgroundColor: Colors.transparent,
           color: Colors.black,
           activeColor: Colors.black,
-          tabBackgroundColor: Color.fromARGB(255, 248, 171, 71),
+          tabBackgroundColor: const Color.fromARGB(255, 248, 171, 71),
           gap: 8,
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           tabs: [
-            GButton(
+            const GButton(
               icon: Icons.home,
               text: 'Home',
             ),
-            GButton(
+            const GButton(
               icon: Icons.shopping_cart,
               text: 'Cart',
             ),
             GButton(
               icon: Icons.person,
               text: 'Profile',
+              onPressed: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => const ProfilePage(),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.ease;
+
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              },
             ),
-            GButton(
+            const GButton(
               icon: Icons.settings,
               text: 'Settings',
             ),
