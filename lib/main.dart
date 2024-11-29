@@ -19,6 +19,5 @@ class MyApp extends StatelessWidget {
       //home: const SignInPage(),
       home: const SignInPage(),
     );
-    
   }
 }

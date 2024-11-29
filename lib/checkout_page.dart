@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_system_app/home_page.dart';
 import 'package:food_system_app/util/checkout_message.dart';
 
-const String touchNGoImagePath = 'assets/images/tng-logo.png';
+const String touchNGoImagePath = 'assets/icons/tng.png';
 const String cashImagePath = 'assets/icons/cash-icon.png';
 const String cardImagePath = 'assets/icons/credit-card-icon.png';
 
@@ -61,7 +61,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   child: Text('Delivery',
                   style: 
                   TextStyle(
-                    color: isDeliverySelected ? const Color.fromARGB(255,248, 171, 71) : Colors.grey,
+                    color: isDeliverySelected ? const Color.fromARGB(255,248, 171, 71) : const Color.fromARGB(255, 104, 104, 104),
                     fontWeight: isDeliverySelected ? FontWeight.bold : FontWeight.normal,
                   ),),
                 ),
@@ -73,7 +73,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   ),
                   child: Text('Pick-up',
                   style: TextStyle(
-                    color: !isDeliverySelected ? const Color.fromARGB(255,248, 171, 71) : Colors.grey,
+                    color: !isDeliverySelected ? const Color.fromARGB(255,248, 171, 71) : const Color.fromARGB(255, 104, 104, 104),
                     fontWeight: !isDeliverySelected ? FontWeight.bold : FontWeight.normal,
                   ),),
                 ),
@@ -229,7 +229,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               const Divider(
                 height: 20, // Height of the divider
                 thickness: 2, // Thickness of the line
-                color: Color.fromARGB(255, 234, 228, 218), // Color of the line
+                color: Color.fromARGB(255, 155, 153, 153), // Color of the line
                 indent: 20, // Indent from the left
                 endIndent: 20, // Indent from the right
               ),
@@ -243,7 +243,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Subtotal(incl. Tax)',
+                        Text('Subtotal (Incl. Tax)',
                         style: TextStyle(
                           fontSize: 13,
                         ),),
@@ -524,7 +524,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     children: [
                       Container(
                         width: 40,
-                        height: 30,
+                        height: 40,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(imagePath),
@@ -534,7 +534,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Text(paymentMethod)
+                        child: Text(paymentMethod, style: const TextStyle(fontWeight: FontWeight.w700),)
                       ),
                     ],
                   ),
@@ -573,7 +573,7 @@ AppBar appBar(BuildContext context){
             preferredSize: const Size.fromHeight(4.0), // Adjust the height as needed
             child: Container(
               color: const Color.fromARGB(255, 237, 237, 237), // Adjust the color as needed
-              height: 4.0, // Adjust the height as needed
+              height: 0.0, // Adjust the height as needed
             ),
           ),
     centerTitle: true,

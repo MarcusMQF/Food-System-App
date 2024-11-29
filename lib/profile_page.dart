@@ -86,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: EdgeInsets.only(left: 25.0),
             child: Text(
               'My Details',
-              style: TextStyle(color: Color.fromARGB(255, 90, 90, 90)),
+              style: TextStyle(color: Color.fromARGB(255, 104, 104, 104)),
             ),
           ),
           MyTextBox(
