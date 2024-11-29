@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:um_internal_hackathon/home_page.dart';
 import 'package:um_internal_hackathon/pages/checkout_message.dart';
 
@@ -437,7 +438,37 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ) 
             ),
           ),
+          
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+        child: GNav(
+          backgroundColor: Colors.transparent,
+          color: Colors.black,
+          activeColor: Colors.black,
+          tabBackgroundColor: Color.fromARGB(255, 248, 171, 71),
+          gap: 8,
+          padding: EdgeInsets.all(16),
+          tabs: [
+            GButton(
+              icon: Icons.home,
+              text: 'Home',
+            ),
+            GButton(
+              icon: Icons.shopping_cart,
+              text: 'Cart',
+            ),
+            GButton(
+              icon: Icons.person,
+              text: 'Profile',
+            ),
+            GButton(
+              icon: Icons.settings,
+              text: 'Settings',
+            ),
+          ],
+        ),
       ),
     );
   }
