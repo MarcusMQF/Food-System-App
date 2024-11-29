@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:food_system_app/checkout_page.dart';
 import 'package:food_system_app/profile_page.dart';
 import 'package:food_system_app/settings_page.dart';
+import 'package:food_system_app/menu.dart';
 import 'package:food_system_app/util/category_cards.dart';
 import 'package:food_system_app/util/restaurants_cards.dart';
 import 'package:lottie/lottie.dart'; 
@@ -150,8 +151,15 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-                          child: const Center(
-                            child: Text(
+                          child: Center(
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => SecondPage()),
+                                );
+                                },
+                              child : const Text(
                               'Take a look',
                               style: TextStyle(
                                 color: Colors.black,
@@ -159,7 +167,8 @@ class _HomePageState extends State<HomePage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
+                            ),
+                          ), 
                         ),
                       ],
                     ),
