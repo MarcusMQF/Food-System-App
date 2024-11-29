@@ -30,12 +30,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   csv: ^6.0.0
+  google_nav_bar: ^5.0.6
   
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.16
+  lottie: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -62,13 +65,27 @@ flutter:
     - family: TodayShow
       fonts:
         - asset: fonts/Today-Show.otf
+
     - family: AwesomeFriday
       fonts:
         - asset: fonts/Awesome-Friday.otf
 
+    - family: StudyClash
+      fonts:
+        - asset: fonts/Study-Clash.otf
+      
+    - family: Workspace
+      fonts:
+        - asset: fonts/Workspace.otf
+      
   assets:
     - assets/credentials.csv
-    - assets/background.png
+    - assets/images/stink.png
+    - assets/images/green.png
+    - assets/images/medal.png
+    - assets/images/kimseng.png
+    - assets/images/khasiat.png
+    - assets/images/laivegetarian.png
     - assets/tng-logo.png
     - assets/icons/cash-icon.png
     - assets/icons/credit-card-icon.png
