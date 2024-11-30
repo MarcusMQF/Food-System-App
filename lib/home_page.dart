@@ -3,10 +3,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:food_system_app/checkout_page.dart';
 import 'package:food_system_app/profile_page.dart';
 import 'package:food_system_app/settings_page.dart';
-import 'package:food_system_app/menu.dart';
 import 'package:food_system_app/util/category_cards.dart';
 import 'package:food_system_app/util/restaurants_cards.dart';
 import 'package:lottie/lottie.dart'; 
+import 'package:food_system_app/menu.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,9 +20,9 @@ class _HomePageState extends State<HomePage> {
 
     final List<Widget> _pages = [
       const HomePage(),
-      CheckoutPage(),
-      ProfilePage(),
-      SettingsPage(),
+      const CheckoutPage(),
+      const ProfilePage(),
+      const SettingsPage(),
     ];
 
     void _onTabTapped(int index) {
@@ -151,24 +151,24 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-                          child: Center(
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => SecondPage()),
-                                );
-                                },
-                              child : const Text(
-                              'Take a look',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SecondPage()),
+                              );
+                            },
+                            child: const Center(
+                              child: Text(
+                                'Take a Look',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                            ),
-                          ), 
+                          ),
                         ),
                       ],
                     ),

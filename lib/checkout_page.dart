@@ -304,7 +304,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 ),
                               ),
                             ),
-                            const Text('Eco-friendly options',
+                            const Text('Eco-Friendly Options',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -353,7 +353,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 padding: const EdgeInsets.only(left: 32.0, right: 32.0, top: 16.0, bottom: 13),
                 margin: const EdgeInsets.only(top: 18.0), 
                 width: double.infinity,
-                color: const Color.fromARGB(255, 254, 247, 236),
+                color: const Color.fromARGB(255, 255, 248, 242),
                 child: const Text(
                   'Payment details',
                   style: TextStyle(
@@ -362,7 +362,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   ),),
               ),
               Container(
-                color: const Color.fromARGB(255, 254, 247, 236),
+                color: const Color.fromARGB(255, 255, 248, 242),
                 padding: const EdgeInsets.only(bottom: 40.0, left: 32, right: 32), 
                 child: Column(
                   children: [
@@ -380,7 +380,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20.0),
-              color: Colors.white,
+              color: const Color.fromARGB(255, 255, 248, 242),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -391,14 +391,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         margin: const EdgeInsets.only(left: 16),
                         child: const Text('Total',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                         )),
                       ),
                       Container(
                         margin: const EdgeInsets.only(right: 16),
                         child: const Text('RM12.90',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
                         )),
                       )
@@ -577,7 +577,7 @@ AppBar appBar(BuildContext context){
             ),
           ),
     centerTitle: true,
-    backgroundColor: Colors.white,
+    backgroundColor: const Color.fromARGB(255, 255, 248, 242),
     elevation: 0.0,
   ); 
 }
