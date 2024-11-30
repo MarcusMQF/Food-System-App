@@ -154,8 +154,8 @@ class _HomePageState extends State<HomePage> {
                           child: GestureDetector(
                             onTap: () {
                               Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => SecondPage()),
+                                context,
+                                MaterialPageRoute(builder: (context) => SecondPage()),
                               );
                             },
                             child: const Center(
@@ -301,10 +301,10 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: 200, // Set the width of each card
                     child: RestaurantCards(
-                      restaurantImagePath: 'assets/images/laivegetarian.png',
+                      restaurantImagePath: 'assets/images/supabowl.png',
                       rating: '4.3',
-                      restaurantName: 'Lai Vegetarian',
-                      restaurantAdress: 'JNo, 1-13A Mukim Pekan Kayu Ara, Petaling Jaya, Selangor',
+                      restaurantName: 'SUPA Bowl Vege',
+                      restaurantAdress: 'Cafeteria, Bestari Residential College (KK4), Universiti Malaya',
                     ),
                   ),
                   SizedBox(width: 20),
