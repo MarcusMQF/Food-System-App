@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Text(
-                        'Marcus Mah',
+                        'Your Name',
                         style: TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,

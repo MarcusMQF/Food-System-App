@@ -10,7 +10,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final TextEditingController _usernameController = TextEditingController(text: 'Marcus Mah');
+  final TextEditingController _usernameController = TextEditingController(text: 'Your Name');
   final TextEditingController _bioController = TextEditingController(text: 'empty bio');
 
   Future<void> editField(BuildContext context, String field, TextEditingController controller) async {
