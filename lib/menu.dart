@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 void main() {
   runApp(SecondPage());
@@ -12,7 +11,7 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cafe in UM',),
+        title: const Text('Cafe in UM',),
       ),
       body: MainWidget(),
     );
@@ -63,18 +62,18 @@ class MainWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             // TextBox
-            Container(
+            SizedBox(
               width: 279,
               child: Stack(
                 children: [
                   TextField(
                     enabled: true,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(left: 12, right: 34),
+                      contentPadding: const EdgeInsets.only(left: 12, right: 34),
                       filled: true,
                       fillColor: Colors.grey[200], // Light grey background
                       border: OutlineInputBorder(
@@ -82,7 +81,7 @@ class MainWidget extends StatelessWidget {
                         borderSide: BorderSide.none,
                       ),
                     ),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       fontSize: 14,
                       height: 1.57,
@@ -106,7 +105,7 @@ class MainWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
             // CustomButton
             
@@ -120,7 +119,7 @@ class MainWidget extends StatelessWidget {
                 itemCount: 4, // Number of cards
                 itemBuilder: (context, index) {
                   return _buildCard(
-                    color: [Color.fromARGB(255,248, 171, 71), Color.fromARGB(255,248, 171, 71), Color.fromARGB(255,248, 171, 71),Color.fromARGB(255,248, 171, 71)][index],
+                    color: [const Color.fromARGB(255,248, 171, 71), const Color.fromARGB(255,248, 171, 71), const Color.fromARGB(255,248, 171, 71),const Color.fromARGB(255,248, 171, 71)][index],
                     text: [
                       'KK',
                       'Faculty',
@@ -138,13 +137,13 @@ class MainWidget extends StatelessWidget {
             Container(
       width: 300, // Set the width of the box
       height: 600, // Set the height of the box
-      color: Color.fromARGB(255,248, 171, 71), // Set the background color to blue
-      padding: EdgeInsets.all(16.0), // Add padding around the content
+      color: const Color.fromARGB(255,248, 171, 71), // Set the background color to blue
+      padding: const EdgeInsets.all(16.0), // Add padding around the content
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'KK12 NOVI Cafe',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -154,7 +153,7 @@ class MainWidget extends StatelessWidget {
               color: Colors.black, // Black text
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Text(
             'Fresh Meals',
             style: TextStyle(
@@ -171,7 +170,7 @@ class MainWidget extends StatelessWidget {
             height: 200,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Container(
             width: 60,
             height: 60,
@@ -180,8 +179,8 @@ class MainWidget extends StatelessWidget {
               // Additional properties can be added here
             ),
           ),
-          SizedBox(height: 16.0),
-          Container(
+          const SizedBox(height: 16.0),
+          const SizedBox(
             width: 157,
             child: Text(
               'Nasi Goreng Pataya',
@@ -194,8 +193,8 @@ class MainWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
+          const SizedBox(height: 16.0),
+          const Text(
             'RM 5.00',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -205,8 +204,8 @@ class MainWidget extends StatelessWidget {
               color: Colors.black, // Black text
             ),
           ),
-          SizedBox(height: 16.0),
-          Container(
+          const SizedBox(height: 16.0),
+          const SizedBox(
             width: 157,
             child: Text(
               'Nasi Goreng Thai',
@@ -219,8 +218,8 @@ class MainWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
+          const SizedBox(height: 16.0),
+          const Text(
             'RM 5.00',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -236,7 +235,7 @@ class MainWidget extends StatelessWidget {
     ),
           
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
             // LineWidget
             Container(
@@ -251,7 +250,7 @@ class MainWidget extends StatelessWidget {
               transform: Matrix4.rotationZ(0), // rotate(0deg)
             ),
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
             // ImageWidget2
             Container(
@@ -263,19 +262,19 @@ class MainWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
             // TextStyleExample
             Container(
       width: 300, // Set the width of the box
       height: 600, // Set the height of the box
-      color: Color.fromARGB(255,248, 171, 71), // Set the background color to blue
-      padding: EdgeInsets.all(16.0), // Add padding around the content
+      color: const Color.fromARGB(255,248, 171, 71), // Set the background color to blue
+      padding: const EdgeInsets.all(16.0), // Add padding around the content
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'KK8 Cafe',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -285,7 +284,7 @@ class MainWidget extends StatelessWidget {
               color: Colors.black, // Black text
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Text(
             'Fresh Meals',
             style: TextStyle(
@@ -302,7 +301,7 @@ class MainWidget extends StatelessWidget {
             height: 200,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Container(
             width: 60,
             height: 60,
@@ -311,8 +310,8 @@ class MainWidget extends StatelessWidget {
               // Additional properties can be added here
             ),
           ),
-          SizedBox(height: 16.0),
-          Container(
+          const SizedBox(height: 16.0),
+          const SizedBox(
             width: 157,
             child: Text(
               'Nasi Goreng USA',
@@ -325,8 +324,8 @@ class MainWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
+          const SizedBox(height: 16.0),
+          const Text(
             'RM 5.00',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -336,8 +335,8 @@ class MainWidget extends StatelessWidget {
               color: Colors.black, // Black text
             ),
           ),
-          SizedBox(height: 16.0),
-          Container(
+          const SizedBox(height: 16.0),
+          const SizedBox(
             width: 157,
             child: Text(
               'Mee Celup',
@@ -350,8 +349,8 @@ class MainWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
+          const SizedBox(height: 16.0),
+          const Text(
             'RM 5.00',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -366,10 +365,10 @@ class MainWidget extends StatelessWidget {
           
     ),
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
 // TextStyleExample
-            Text(
+            const Text(
               'KK3 Cafe',
               style: TextStyle(
                 fontFamily: 'Archivo',
@@ -380,19 +379,19 @@ class MainWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
             // MyTextWidget3
             Container(
       width: 300, // Set the width of the box
       height: 600, // Set the height of the box
-      color: Color.fromARGB(255,248, 171, 71), // Set the background color to blue
-      padding: EdgeInsets.all(16.0), // Add padding around the content
+      color: const Color.fromARGB(255,248, 171, 71), // Set the background color to blue
+      padding: const EdgeInsets.all(16.0), // Add padding around the content
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'KK12 NOVI Cafe',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -402,7 +401,7 @@ class MainWidget extends StatelessWidget {
               color: Colors.black, // Black text
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Text(
             'Fresh Meals',
             style: TextStyle(
@@ -419,7 +418,7 @@ class MainWidget extends StatelessWidget {
             height: 200,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Container(
             width: 60,
             height: 60,
@@ -428,8 +427,8 @@ class MainWidget extends StatelessWidget {
               // Additional properties can be added here
             ),
           ),
-          SizedBox(height: 16.0),
-          Container(
+          const SizedBox(height: 16.0),
+          const SizedBox(
             width: 157,
             child: Text(
               'Char Keuy Teow (Udang)',
@@ -442,8 +441,8 @@ class MainWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
+          const SizedBox(height: 16.0),
+          const Text(
             'RM 5.00',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -453,8 +452,8 @@ class MainWidget extends StatelessWidget {
               color: Colors.black, // Black text
             ),
           ),
-          SizedBox(height: 16.0),
-          Container(
+          const SizedBox(height: 16.0),
+          const SizedBox(
             width: 157,
             child: Text(
               'Char Kuey Teow (Kerang)',
@@ -467,8 +466,8 @@ class MainWidget extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0),
-          Text(
+          const SizedBox(height: 16.0),
+          const Text(
             'RM 5.00',
             style: TextStyle(
               fontFamily: 'Archivo',
@@ -482,7 +481,7 @@ class MainWidget extends StatelessWidget {
       ),
           
     ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
             // ImageWidget4
             Container(
@@ -494,7 +493,7 @@ class MainWidget extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
 
 
             // TabBarMenu
